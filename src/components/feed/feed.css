@@ -1,0 +1,16 @@
+.user-post {
+  margin-bottom: 16px;
+}
+
+.vueJS {
+  -webkit-box-shadow: 0 4px 15px -2px lightgray;
+          box-shadow: 0 4px 15px -2px lightgray;
+  margin-bottom: 18px;
+}
+
+.date {
+  font-size: 12px;
+  font-weight: 400;
+  color: grey;
+  text-transform: uppercase;
+}

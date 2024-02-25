@@ -1,0 +1,18 @@
+.avatar {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 2px solid #A6328D;
+  margin-bottom: 10px;
+}
+
+.avatar_image {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.username {
+  font-size: 12px;
+  font-weight: 400;
+}

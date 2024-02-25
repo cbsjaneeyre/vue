@@ -1,0 +1,45 @@
+.stories {
+  display: flex;
+  justify-content: space-between;
+}
+
+.top-buttons {
+  width: 32px;
+}
+
+.top-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin-bottom: 15px;
+}
+
+.text {
+  margin-bottom: 32px;
+}
+
+.wrapper {
+  padding: 24px 20px;
+  border-radius: 10px;
+}
+
+.icon {
+  width: 16px;
+  margin-right: 4px;
+}
+
+.reactions {
+  display: flex;
+  align-items: center;
+}
+
+.reactions-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 13px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  height: 28px;
+}
