@@ -3,10 +3,10 @@
     <top>
       <template v-slot:headline>
         <div class="logo">
-          <logo logo="./public/gitogram.png"></logo>
+          <logo logo="./assets/gitogram.png"></logo>
         </div>
         <div class="homeButtons">
-          <homeButtons userpic="../../assets/userpic.png"></homeButtons>
+          <homeButtons userpic="./assets/userpic.png"></homeButtons>
         </div>
       </template>
       <template v-slot:content>
