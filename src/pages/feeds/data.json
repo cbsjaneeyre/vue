@@ -1,52 +1,52 @@
 [
   {
     "id": "0",
-    "avatar": "../../assets/josh.png",
+    "avatar": "./assets/josh.png",
     "username": "Josh"
   },
   {
     "id": "1",
-    "avatar": "../../assets/andrew.png",
+    "avatar": "./assets/andrew.png",
     "username": "Andrew"
   },
   {
     "id": "2",
-    "avatar": "../../assets/camille.png",
+    "avatar": "./assets/camille.png",
     "username": "Camille"
   },
   {
     "id": "3",
-    "avatar": "../../assets/marselle.png",
+    "avatar": "./assets/marselle.png",
     "username": "Marselle"
   },
   {
     "id": "4",
-    "avatar": "../../assets/piter.png",
+    "avatar": "./assets/piter.png",
     "username": "Piter"
   },
   {
     "id": "5",
-    "avatar": "../../assets/can.png",
+    "avatar": "./assets/can.png",
     "username": "Can"
   },
   {
     "id": "6",
-    "avatar": "../../assets/Iloveanime.png",
+    "avatar": "./assets/Iloveanime.png",
     "username": "Iloveanime"
   },
   {
     "id": "7",
-    "avatar": "../../assets/diself.png",
+    "avatar": "./assets/diself.png",
     "username": "Diself"
   },
   {
     "id": "8",
-    "avatar": "../../assets/gartor.png",
+    "avatar": "./assets/gartor.png",
     "username": "Gartor"
   },
   {
     "id": "9",
-    "avatar": "../../assets/camilr.png",
+    "avatar": "./assets/camilr.png",
     "username": "Camilr"
   }
 ]

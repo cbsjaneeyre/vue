@@ -1,15 +1,13 @@
 <template>
-  <button class="homeButtons">
-    <div class="icon">
+    <button class="homeButtons-icon">
       <icon name="home"></icon>
-    </div>
-    <div class="avatar">
+    </button>
+    <button class="homeButtons-avatar">
       <img :src="userpic" class="userpic_image" alt="userpic">
-    </div>
-    <div class="icon">
+    </button>
+    <button class="homeButtons-icon">
       <icon name="logout"></icon>
-    </div>
-  </button>
+    </button>
 </template>
 
 <script>

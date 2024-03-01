@@ -1,7 +1,7 @@
 <template>
   <div class="c-comment">
     <p>
-      <span class="username">{{ username }}</span>
+      <span class="comment-username">{{ username }}</span>
       {{ text }}
     </p>
   </div>

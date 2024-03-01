@@ -1,41 +1,40 @@
-.stories {
+.top_logo {
+  width: 174px;
+}
+
+.top_homeButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 145px;
+}
+
+.top_stories {
   display: flex;
   justify-content: space-between;
 }
 
-.top-buttons {
-  width: 32px;
-}
-
-.top-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.title {
-  margin-bottom: 15px;
-}
-
-.text {
+.feed_userPost {
   margin-bottom: 32px;
 }
 
-.wrapper {
+.feed_wrapper {
   padding: 24px 20px;
   border-radius: 10px;
+  margin-bottom: 18px;
 }
 
-.icon {
+.feed_reactions-icon {
   width: 16px;
   margin-right: 4px;
 }
 
-.reactions {
+.feed_reactions {
   display: flex;
   align-items: center;
 }
 
-.reactions-item {
+.feed_reactions-item {
   display: flex;
   align-items: center;
   padding: 5px 13px;

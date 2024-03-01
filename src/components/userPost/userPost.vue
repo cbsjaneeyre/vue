@@ -1,21 +1,17 @@
 <template>
-  <div class="c-user-post">
-    <div class="avatar">
-      <img :src="avatar" class="avatar_image" alt="avatar">
-    </div>
-    <div class="username">{{ username }}</div>
-  </div>
+  <h1 class="user-post-title">{{ title }}</h1>
+  <div class="user-post-text"> {{ text }}</div>
 </template>
 
 <script>
 export default {
   name: 'userPost',
   props: {
-    avatar: {
+    title: {
       type: String,
       required: true
     },
-    username: {
+    text: {
       type: String,
       required: true
     }

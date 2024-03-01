@@ -1,4 +1,4 @@
-.avatar {
+.story-avatar {
   width: 92px;
   height: 92px;
   border-radius: 50%;
@@ -6,13 +6,12 @@
   margin-bottom: 10px;
 }
 
-.avatar_image {
+.story-avatar_image {
   width: 80px;
-  height: 80px;
-  overflow: hidden;
+  transform: translate(5%, 5%);
 }
 
-.username {
+.story-username {
   font-size: 12px;
   font-weight: 400;
 }

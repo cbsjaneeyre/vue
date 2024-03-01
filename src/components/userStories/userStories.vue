@@ -1,9 +1,9 @@
 <template>
   <button class="c-story-button" @click="$emit('onClick')">
-    <div class="avatar">
-      <img :src="avatar" class="avatar_image" alt="avatar">
+    <div class="story-avatar">
+      <img :src="avatar" class="story-avatar_image" alt="story-avatar-image">
     </div>
-    <div class="username">{{ username }}</div>
+    <div class="story-username">{{ username }}</div>
   </button>
 </template>
 

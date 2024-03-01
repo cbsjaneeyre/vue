@@ -1,7 +1,5 @@
 <template>
-  <div class="logo">
-    <img :src="logo" class="logo_image" alt="logo">
-  </div>
+  <img :src="logo" class="logo-image" alt="logo">
 </template>
 
 <script>

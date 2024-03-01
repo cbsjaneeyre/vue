@@ -1,23 +1,23 @@
 <template>
   <div class="c-feed">
     <div class="g-container">
-      <div class="user-post">
-        <userPost avatar="../../assets/josh.png" username="joshua_l"></userPost>
+      <div class="feed-user">
+        <user avatar="./assets/josh.png" username="joshua_l"></user>
       </div>
-      <div class="vueJS">
-        <slot name="vueJS"></slot>
+      <div class="feed-vueJS">
+        <slot name="feed-vueJS"></slot>
       </div>
-      <div class="toggler">
+      <div class="feed-toggler">
         <toggler @onToggle="toggle"></toggler>
       </div>
-      <div class="comments" v-if="shown">
-        <ul class="comments-list">
-          <li class="comments-item" v-for="n in 3" :key="n">
+      <div class="feed-comments" v-if="shown">
+        <ul class="feed-comments_list">
+          <li class="feed-comments_item" v-for="n in 3" :key="n">
             <comment text="some comment" username="joshua_l" date="15 may"></comment>
           </li>
         </ul>
       </div>
-      <span class="date">{{ date }}</span>
+      <span class="feed-date">{{ date }}</span>
     </div>
   </div>
 </template>
@@ -25,14 +25,14 @@
 <script>
 import { toggler } from '../toggler'
 import { comment } from '../comment'
-import { userPost } from '../userPost'
+import { user } from '../user'
 
 export default {
   name: 'Feed',
   components: {
     toggler,
     comment,
-    userPost
+    user
   },
   data () {
     return {

@@ -1,6 +1,6 @@
 <template>
   <button class="c-reaction-button">
-    <div class="text">{{ text }}</div>
+    <div class="reaction-button-text">{{ text }}</div>
   </button>
 </template>
 
