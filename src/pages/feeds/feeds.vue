@@ -49,6 +49,13 @@
       </template>
     </feed>
   </div>
+  <div class="g-container">
+    <ul class="git-list">
+      <li class="git-item" v-for="item in items" :key="item.id">
+        <gitComponent v-bind="gitComponentData(item)" dark></gitComponent>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -61,6 +68,8 @@ import { homeButtons } from '../../components/homeButtons'
 import { reactionButtons } from '../../components/reactionButtons'
 import { icon } from '../../icons'
 import { userPost } from '../../components/userPost'
+import * as api from '../../api'
+import { gitComponent } from '../../components/gitComponent'
 
 export default {
   name: 'Feeds',
@@ -72,11 +81,31 @@ export default {
     homeButtons,
     reactionButtons,
     icon,
-    userPost
+    userPost,
+    gitComponent
   },
   data () {
     return {
-      stories
+      stories,
+      items: []
+    }
+  },
+  methods: {
+    gitComponentData (item) {
+      return {
+        title: item.name,
+        username: item.owner.login,
+        stars: item.stargazers_count,
+        description: item.description
+      }
+    }
+  },
+  async created () {
+    try {
+      const { data } = await api.trendings.getTrendings()
+      this.items = data.items
+    } catch (error) {
+      console.log(error)
     }
   }
 }

@@ -3,7 +3,7 @@
     <div class="user-avatar">
       <img :src="avatar" class="user-avatar_image" alt="avatar">
     </div>
-    <div class="user-username">{{ username }}</div>
+    <div class="user-username">{{ text }}</div>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
       type: String,
       required: true
     },
-    username: {
+    text: {
       type: String,
       required: true
     }

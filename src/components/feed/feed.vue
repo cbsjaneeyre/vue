@@ -2,7 +2,7 @@
   <div class="c-feed">
     <div class="g-container">
       <div class="feed-user">
-        <user avatar="./assets/josh.png" username="joshua_l"></user>
+        <user avatar="./assets/josh.png" text="joshua_l"></user>
       </div>
       <div class="feed-vueJS">
         <slot name="feed-vueJS"></slot>
