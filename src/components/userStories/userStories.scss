@@ -4,6 +4,10 @@
   border-radius: 50%;
   border: 2px solid #A6328D;
   margin-bottom: 10px;
+
+  &:hover {
+    border: 2px solid white;
+  }
 }
 
 .story-avatar_image {

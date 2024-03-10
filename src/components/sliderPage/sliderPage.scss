@@ -1,25 +1,13 @@
-.c-slider-page-wrapper {
-  max-width: 375px;
-}
-
-.slider-page-progress-bar {
-  margin-bottom: 12px;
-}
-
-.slider-page-user {
-  margin-bottom: 13px;
-}
-
-.slider-page-content {
-  border-top: 1px solid #CACACA;
-  border: 1px solid #CACACA;
-  font-size: 14px;
-  font-weight: 400px;
-  margin-bottom: 24px;
-}
-
-.slider-page-button {
+.stories {
   display: flex;
-  justify-content: center;
-  margin-bottom: 32px;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  margin-left: -188px;
+  transition: .5s;
+}
+
+.c-slider-page-container {
+  position: relative;
+  height: 660px;
 }

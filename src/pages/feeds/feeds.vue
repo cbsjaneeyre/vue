@@ -11,8 +11,12 @@
       </template>
       <template v-slot:content>
         <ul class="top_stories">
-          <li class="top_stories-item" v-for="story in stories" :key="story.id">
-            <userStories :avatar="story.avatar" :username="story.username" @onClick="handleClick(story.id)"></userStories>
+          <li class="top_stories-item" v-for="{ id, owner, name } in trendings" :key="id">
+            <userStories
+            :avatar="owner.avatar_url"
+            :username="name"
+            @storyPress="$router.push({ name: 'storiesPage', params: { initialSlide: id } })"
+            ></userStories>
           </li>
         </ul>
       </template>
