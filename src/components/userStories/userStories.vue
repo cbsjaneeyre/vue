@@ -1,5 +1,5 @@
 <template>
-  <button class="c-story-button" @click="$emit('onClick')">
+  <button class="c-story-button" @click="$emit('onPress')">
     <div class="story-avatar">
       <img :src="avatar" class="story-avatar_image" alt="story-avatar-image">
     </div>

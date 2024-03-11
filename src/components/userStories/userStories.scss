@@ -1,12 +1,20 @@
+.c-story-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .story-avatar {
   width: 92px;
   height: 92px;
   border-radius: 50%;
   border: 2px solid #A6328D;
   margin-bottom: 10px;
+  transition: .3s;
 
   &:hover {
     border: 2px solid white;
+    transition: .3s;
   }
 }
 

@@ -75,7 +75,7 @@ export default {
     },
     moveSlider (slideNdx) {
       const { slider, item } = this.$refs
-      const slideWidth = parseInt(getComputedStyle(item).getPropertyValue('width'), 10)
+      const slideWidth = parseInt(getComputedStyle(item[slideNdx]).getPropertyValue('width'), 10)
 
       this.slideNdx = slideNdx
       this.sliderPosition = -(slideWidth * slideNdx)
@@ -102,12 +102,12 @@ export default {
     }
   },
   async mounted () {
+    await this.fetchTrendings()
+    await this.loadReadme()
     if (this.initialSlide) {
       const ndx = this.trendings.findIndex((item) => item.id === this.initialSlide)
       await this.handleSlide(ndx)
     }
-    await this.fetchTrendings()
-    await this.loadReadme()
   }
 }
 </script>
