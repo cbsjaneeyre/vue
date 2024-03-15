@@ -10,7 +10,7 @@
         >
           <sliderPageItem
           :data="getStoryData(trending)"
-          :active="slideNdx === ndx"
+          :active="+slideNdx === +ndx"
           :loading="slideNdx === ndx && loading"
           :buttonsShown="activeButtons"
           @onNextSlide="handleSlide(ndx + 1)"
@@ -67,7 +67,7 @@ export default {
     },
     getStoryData (object) {
       return {
-        id: object.id,
+        id: object.owner.id,
         avatar: object.owner?.avatar_url,
         username: object.owner?.login,
         content: object.readme

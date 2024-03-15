@@ -1,5 +1,6 @@
 <template>
-  <div :class={active} class="c-progress-bar">
+  {{ active }}
+  <div :class="['c-progress-bar', { 'active' : active }]">
     <div ref="indicator" class="c-progress-bar_indicator"></div>
   </div>
 </template>
@@ -7,9 +8,11 @@
 <script>
 export default {
   name: 'progressBar',
-  data () {
-    return {
-      active: false
+  props: {
+    active: {
+      type: Boolean,
+      required: true,
+      default: false
     }
   },
   emits: ['onFinish'],
@@ -20,7 +23,9 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      this.active = true
+      // setTimeout(() => {
+      return this.active
+      // }, 100)
     })
     this.$refs.indicator.addEventListener('transitionend', this.emitOnFinish)
   },

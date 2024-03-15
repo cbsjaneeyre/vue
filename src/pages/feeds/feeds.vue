@@ -11,10 +11,10 @@
       </template>
       <template v-slot:content>
         <ul class="top_stories">
-          <li class="top_stories-item" v-for="{ id, owner, name } in items" :key="id">
+          <li class="top_stories-item" v-for="{ id, owner} in items" :key="id">
             <userStories
             :avatar="owner.avatar_url"
-            :username="name"
+            :username="owner?.login"
             @onPress="$router.push({ name: 'storiesPage', params: { initialSlide: id } })"
             ></userStories>
           </li>
