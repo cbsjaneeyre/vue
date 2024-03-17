@@ -26,7 +26,11 @@
       </div>
     </div>
     <div class="slider-page-button">
-      <mainButton>Follow</mainButton>
+      <mainButton class="slider-button"
+      :theme="data.following.status ? 'grey' : 'green'"
+      :loading="data.following.loading"
+      @click="$emit(data.following.status ? 'onUnFollow' : 'onFollow', data.id)"
+      >{{ data.following.status ? 'Unfollow' : 'Follow' }}</mainButton>
     </div>
     <template v-if="active">
       <button
@@ -69,7 +73,7 @@ export default {
     spinner,
     icon
   },
-  emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish'],
+  emits: ['onPrevSlide', 'onNextSlide', 'onProgressFinish', 'onFollow', 'onUnFollow'],
   props: {
     active: Boolean,
     loading: Boolean,

@@ -2,16 +2,17 @@
   <div class="top">
     <top>
       <template v-slot:headline>
-        <div class="top_logo">
-          <logo logo="./assets/gitogram.png"></logo>
-        </div>
+        <button class="top_logo">
+          <logo></logo>
+        </button>
         <div class="top_homeButtons">
-          <homeButtons userpic="./assets/userpic.png"></homeButtons>
+          <homeButtons></homeButtons>
         </div>
       </template>
       <template v-slot:content>
         <ul class="top_stories">
-          <li class="top_stories-item" v-for="{ id, owner} in items" :key="id">
+          <!-- getUnstarredRepos instead of items -->
+          <li class="top_stories-item" v-for="{ id, owner } in items" :key="id">
             <userStories
             :avatar="owner.avatar_url"
             :username="owner?.login"
@@ -74,6 +75,7 @@ import { icon } from '../../icons'
 import { userPost } from '../../components/userPost'
 import * as api from '../../api'
 import { gitComponent } from '../../components/gitComponent'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Feeds',
@@ -94,6 +96,9 @@ export default {
       items: []
     }
   },
+  computed: {
+    ...mapGetters(['getUnstarredRepos'])
+  },
   methods: {
     gitComponentData (item) {
       return {
@@ -102,6 +107,25 @@ export default {
         stars: item.stargazers_count,
         description: item.description
       }
+    },
+    async getUser () {
+      try {
+        const token = localStorage.getItem('token')
+
+        const response = await fetch('https://api.github.com/user', {
+          headers: {
+            Authorization: `token ${token}`
+          }
+        })
+
+        const data = await response.json()
+        console.log(data)
+      } catch (e) {
+        console.log(e)
+      }
+    },
+    goToFeeds () {
+      this.$router.push('/')
     }
   },
   async created () {
@@ -111,6 +135,9 @@ export default {
     } catch (error) {
       console.log(error)
     }
+  },
+  mounted () {
+    this.getUser()
   }
 }
 </script>

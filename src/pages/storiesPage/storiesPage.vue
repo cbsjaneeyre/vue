@@ -3,7 +3,7 @@
     <header class="header">
       <div class="g-container">
         <button class="logo-button" @click="goToFeeds">
-          <logo logo="./assets/white.png"></logo>
+          <logo></logo>
         </button>
         <button class="close-button" @click="goToFeeds">
           <icon name="close"></icon>

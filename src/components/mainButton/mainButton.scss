@@ -1,13 +1,54 @@
 .c-main-button {
-  padding: 11px 109px 11px 109px;
+  padding: 10px 24px;
   font-size: 16px;
   font-weight: 700;
   text-align: center;
   background-color: #31AE54;
   border-radius: 5px;
   color: #FFF;
+  display: inline-flex;
+  align-items: center;
+  transition: .5s;
 
   &:hover {
     background-color: #9E9E9E;
+    transition: .5s;
   }
+}
+
+.disabled {
+  background-color: #9E9E9E;
+  cursor: default;
+}
+
+.loading {
+  background-color: #9E9E9E;
+
+  &:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 2px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+  
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.green {
+  background-color: #31AE54;
+}
+
+.grey {
+  background-color: #9E9E9E;
 }

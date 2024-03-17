@@ -1,15 +1,16 @@
 <template>
-  <img :src="logo" class="logo-image" alt="logo">
+  <div class="c-logo">
+    <icon name="logo"></icon>
+  </div>
 </template>
 
 <script>
+import { icon } from '@/icons'
+
 export default {
   name: 'Logo',
-  props: {
-    logo: {
-      type: String,
-      required: true
-    }
+  components: {
+    icon
   }
 }
 </script>

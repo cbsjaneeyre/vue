@@ -1,25 +1,34 @@
 <template>
-    <button class="homeButtons-icon">
-      <icon name="home"></icon>
+    <button class="homeButtons-icon" >
+      <icon name="home" @click="goToFeeds"></icon>
     </button>
     <button class="homeButtons-avatar">
-      <img :src="userpic" class="userpic_image" alt="userpic">
+      <img :src="avatar" class="userpic_image" alt="userpic">
     </button>
-    <button class="homeButtons-icon">
+    <button class="homeButtons-icon" @click="logout">
       <icon name="logout"></icon>
     </button>
 </template>
 
 <script>
 import { icon } from '../../icons'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'homeButtons',
   components: {
     icon
   },
+  methods: {
+    ...mapActions({
+      logout: 'auth/logout'
+    }),
+    goToFeeds () {
+      this.$router.push('/')
+    }
+  },
   props: {
-    userpic: {
+    avatar: {
       type: String,
       required: true
     }
