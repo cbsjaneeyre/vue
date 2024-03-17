@@ -12,7 +12,7 @@
           <mainButton @click="getToken">Authorize with github <icon class="auth-button-icon" name="octocat"></icon></mainButton>
         </div>
         <div class="auth-img">
-          <img class="auth-img-link" src="../../../dist/assets/macbook.png" alt="macbook">
+          <!-- <img class="auth-img-link" src="../../../dist/assets/macbook.png" alt="macbook"> -->
         </div>
       </div>
     </div>
