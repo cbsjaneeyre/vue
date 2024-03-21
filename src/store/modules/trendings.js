@@ -37,7 +37,7 @@ export const trendings = {
     }
   },
   getters: {
-    getRepoByID: (state) => (id) => {
+    getRepoById: (state) => (id) => {
       return state.data.find(item => item.id === id)
     }
   },
@@ -52,7 +52,7 @@ export const trendings = {
       }
     },
     async fetchReadme ({ commit, getters }, { id, owner, repo }) {
-      const currentRepo = getters.getRepoByID(id)
+      const currentRepo = getters.getRepoById(id)
 
       if (currentRepo.readme !== undefined) return
 
@@ -65,7 +65,7 @@ export const trendings = {
       }
     },
     async starRepo ({ commit, getters }, id) {
-      const { name: repo, owner } = getters.getRepoByID(id)
+      const { name: repo, owner } = getters.getRepoById(id)
 
       commit('SET_FOLLOWING', {
         id,

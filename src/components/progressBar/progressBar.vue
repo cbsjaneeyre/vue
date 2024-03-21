@@ -1,5 +1,4 @@
 <template>
-  {{ active }}
   <div :class="['c-progress-bar', { 'active' : active }]">
     <div ref="indicator" class="c-progress-bar_indicator"></div>
   </div>

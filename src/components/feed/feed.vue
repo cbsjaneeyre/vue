@@ -2,37 +2,56 @@
   <div class="c-feed">
     <div class="g-container">
       <div class="feed-user">
-        <user avatar="./assets/josh.png" username="joshua_l"></user>
+        <user :avatar="data.avatar" :username="data.username"></user>
       </div>
       <div class="feed-vueJS">
-        <slot name="feed-vueJS"></slot>
+        <div class="feed_wrapper">
+          <div class="feed_userPost">
+            <userPost :title="data.title" :text="data.description"></userPost>
+          </div>
+          <ul class="feed_reactions">
+            <li class="feed_reactions-item">
+              <div class="feed_reactions-icon">
+                <icon name="star"></icon>
+              </div>
+              <reactionButtons text="Star"></reactionButtons>
+            </li>
+            <li class="feed_reactions-item">
+              <reactionButtons :text="data.stars"></reactionButtons>
+            </li>
+            <li class="feed_reactions-item">
+              <div class="feed_reactions-icon">
+                <icon name="fork"></icon>
+              </div>
+              <reactionButtons text="Fork"></reactionButtons>
+            </li>
+            <li class="feed_reactions-item">
+              <reactionButtons :text="data.forks"></reactionButtons>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="feed-toggler">
-        <toggler @onToggle="toggle"></toggler>
-      </div>
-      <div class="feed-comments" v-if="shown">
-        <ul class="feed-comments_list">
-          <li class="feed-comments_item" v-for="n in 3" :key="n">
-            <comment text="some comment" username="joshua_l" date="15 may"></comment>
-          </li>
-        </ul>
-      </div>
+      <issues></issues>
       <span class="feed-date">{{ date }}</span>
     </div>
   </div>
 </template>
 
 <script>
-import { toggler } from '../toggler'
-import { comment } from '../comment'
 import { user } from '../user'
+import { reactionButtons } from '../../components/reactionButtons'
+import { icon } from '../../icons'
+import { userPost } from '../../components/userPost'
+import { issues } from '../../components/issues'
 
 export default {
   name: 'Feed',
   components: {
-    toggler,
-    comment,
-    user
+    user,
+    reactionButtons,
+    icon,
+    userPost,
+    issues
   },
   data () {
     return {
@@ -45,6 +64,10 @@ export default {
     }
   },
   props: {
+    data: {
+      type: Object,
+      required: true
+    },
     date: {
       type: String,
       require: true

@@ -12,7 +12,7 @@
           <mainButton @click="getToken">Authorize with github <icon class="auth-button-icon" name="octocat"></icon></mainButton>
         </div>
         <div class="auth-img">
-          <!-- <img class="auth-img-link" src="./assets/macbook.png" alt="macbook"> -->
+          <img class="auth-img-link" src="/assets/macbook.png" alt="macbook">
         </div>
       </div>
     </div>
@@ -34,7 +34,7 @@ import { mainButton } from '@/components/mainButton'
 import { authFooter } from '@/components/footer'
 import { icon } from '@/icons'
 
-const clientID = '286f7a47e463a95bc261'
+const clientId = '286f7a47e463a95bc261'
 const clientSecret = '58f55dcb1e5469e921e1222272356487b5b5e5dd'
 
 export default {
@@ -50,7 +50,7 @@ export default {
       const apiURL = 'https://github.com/login/oauth/authorize'
       const params = new URLSearchParams()
 
-      params.append('client_id', clientID)
+      params.append('client_id', clientId)
       params.append('scope', 'repo:status read:user')
 
       window.location.href = `${apiURL}?${params}`
@@ -66,7 +66,7 @@ export default {
           headers: {
             'Content-type': 'application/json'
           },
-          body: JSON.stringify({ clientID, clientSecret, code })
+          body: JSON.stringify({ clientId, clientSecret, code })
         })
 
         const { token } = await response.json()
