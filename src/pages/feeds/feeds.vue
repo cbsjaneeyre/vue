@@ -28,10 +28,7 @@
     :data="gitComponentData(repoInfo)"
     v-for="repoInfo in repos"
     :key="repoInfo.id"
-    :issues="issues?.loading"
     :date="new Date(created_at)"
-    :loading="issues?.loading"
-    @loadContent="loadIssues({ id, owner: owner.login, repo: name })"
     ></feed>
   </div>
   <!-- <div class="g-container">
@@ -71,7 +68,8 @@ export default {
   computed: {
     ...mapState({
       user: (state) => state.auth.user,
-      repos: (state) => state.starred.starredRepos
+      repos: (state) => state.starred.starredRepos,
+      issue: (state) => state.issues.repoIssues
     }),
     ...mapGetters(['getUnstarredRepos'])
   },

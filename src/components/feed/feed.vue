@@ -31,7 +31,11 @@
           </ul>
         </div>
       </div>
-      <issues></issues>
+      <issues
+      :issues="issues?.loading"
+      :loading="issues?.loading"
+      @loadContent="loadIssues({ id, owner: owner.login, repo: name })"
+      ></issues>
       <span class="feed-date">{{ date }}</span>
     </div>
   </div>
@@ -43,6 +47,7 @@ import { reactionButtons } from '../../components/reactionButtons'
 import { icon } from '../../icons'
 import { userPost } from '../../components/userPost'
 import { issues } from '../../components/issues'
+import { mapActions, mapState } from 'vuex'
 
 export default {
   name: 'Feed',
@@ -58,9 +63,20 @@ export default {
       shown: false
     }
   },
+  computed: {
+    ...mapState({
+      issueState: (state) => state.issues.repoIssues
+    })
+  },
   methods: {
     toggle (isOpened) {
       this.shown = isOpened
+    },
+    ...mapActions({
+      getRepoIssues: 'issues/getRepoIssues'
+    }),
+    loadIssues ({ id, owner, repo }) {
+      this.getRepoIssues({ id, owner, repo })
     }
   },
   props: {
