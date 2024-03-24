@@ -2,7 +2,7 @@
     <button class="homeButtons-icon" >
       <icon name="home" @click="goToFeeds"></icon>
     </button>
-    <button class="homeButtons-avatar">
+    <button class="homeButtons-avatar" @click="goToUser">
       <img :src="avatar" class="userpic_image" alt="userpic">
     </button>
     <button class="homeButtons-icon" @click="logout">
@@ -25,6 +25,9 @@ export default {
     }),
     goToFeeds () {
       this.$router.push('/')
+    },
+    goToUser () {
+      this.$router.push('profile')
     }
   },
   props: {

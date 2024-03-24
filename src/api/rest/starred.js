@@ -14,10 +14,10 @@ export const getStarredRepos = ({ limit }) => {
 
 export const starRepo = ({ repo, owner }) => makeRequest({
   url: `/user/starred/${owner}/${repo}`,
-  method: 'PUT'
+  method: 'put'
 })
 
 export const unstarRepo = ({ repo, owner }) => makeRequest({
   url: `/user/starred/${owner}/${repo}`,
-  method: 'DELETE'
+  method: 'delete'
 })

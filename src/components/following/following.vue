@@ -1,0 +1,31 @@
+<template>
+  <div class="c-wrapper">
+    <div class="followers">
+      <user :avatar="data.avatar" :username="data.username" :title="data.title"></user>
+    </div>
+    <div class="following-button">
+      <mainButton>following</mainButton>
+    </div>
+  </div>
+</template>
+
+<script>
+import { user } from '../user'
+import { mainButton } from '../mainButton'
+
+export default {
+  name: 'following',
+  components: {
+    user,
+    mainButton
+  },
+  props: {
+    data: {
+      type: Object,
+      required: true
+    }
+  }
+}
+</script>
+
+<style lang="scss" src="./following.scss" scoped></style>

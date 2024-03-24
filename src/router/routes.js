@@ -1,6 +1,7 @@
 import { feeds } from '@/pages/feeds'
 import { storiesPage } from '@/pages/storiesPage'
 import { auth } from '@/pages/auth'
+import { profile } from '@/pages/profile'
 
 export default [{
   path: '/',
@@ -16,5 +17,10 @@ export default [{
   path: '/auth',
   component: auth,
   name: 'auth'
+},
+{
+  path: '/profile',
+  component: profile,
+  name: 'profile'
 }
 ]

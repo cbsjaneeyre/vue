@@ -1,5 +1,5 @@
 <template>
-<button :class="['c-main-button', { disabled, loading }]">
+<button :class="['green', { disabled, loading }]">
   <slot></slot>
 </button>
 </template>

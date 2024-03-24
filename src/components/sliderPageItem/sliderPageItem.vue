@@ -30,7 +30,7 @@
       :theme="data.following.status ? 'grey' : 'green'"
       :loading="data.following.loading"
       @click="$emit(data.following.status ? 'onUnFollow' : 'onFollow', data.id)"
-      >{{ data.following.status ? 'Unfollow' : 'Follow' }}</mainButton>
+      >{{ data.following.status ? 'unfollow' : 'follow' }}</mainButton>
     </div>
     <template v-if="active">
       <button

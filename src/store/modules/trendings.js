@@ -1,4 +1,5 @@
 import * as api from '../../api'
+// import { starRepo } from '@/api/rest/starred'
 
 export const trendings = {
   namespaced: true,
@@ -38,7 +39,7 @@ export const trendings = {
   },
   getters: {
     getRepoById: (state) => (id) => {
-      return state.data.find(item => item.id === id)
+      return state.data.find((item) => item.id === id)
     }
   },
   actions: {
@@ -78,6 +79,44 @@ export const trendings = {
 
       try {
         await api.starred.starRepo({ owner: owner.login, repo })
+        commit('SET_FOLLOWING', {
+          id,
+          data: {
+            status: true
+          }
+        })
+      } catch (e) {
+        commit('SET_FOLLOWING', {
+          id,
+          data: {
+            status: false,
+            error: 'error has occured'
+          }
+        })
+      } finally {
+        commit('SET_FOLLOWING', {
+          id,
+          data: {
+            loading: false
+          }
+        })
+      }
+    },
+
+    async unstarRepo ({ commit, getters }, id) {
+      const { name: repo, owner } = getters.getRepoById(id)
+
+      commit('SET_FOLLOWING', {
+        id,
+        data: {
+          status: false,
+          loading: true,
+          error: ''
+        }
+      })
+
+      try {
+        await api.starred.unstarRepo({ owner: owner.login, repo })
         commit('SET_FOLLOWING', {
           id,
           data: {

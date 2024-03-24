@@ -89,7 +89,8 @@ export default {
         stars: item.stargazers_count,
         description: item.description,
         avatar: item.owner.avatar_url,
-        forks: item.forks_count
+        forks: item.forks_count,
+        date: item.created_at
       }
     },
     goToFeeds () {

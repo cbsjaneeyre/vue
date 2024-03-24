@@ -1,4 +1,4 @@
-.c-main-button {
+.green {
   padding: 10px 24px;
   font-size: 16px;
   font-weight: 700;
@@ -8,11 +8,10 @@
   color: #FFF;
   display: inline-flex;
   align-items: center;
-  transition: .5s;
+  position: relative;
 
   &:hover {
     background-color: #9E9E9E;
-    transition: .5s;
   }
 }
 
@@ -23,6 +22,7 @@
 
 .loading {
   background-color: #9E9E9E;
+  color: #9E9E9E;
 
   &:before {
     content: '';
@@ -32,6 +32,8 @@
     border-bottom-color: transparent;
     border-radius: 50%;
     animation: rotation 1s linear infinite;
+    position: absolute;
+    margin-left: 15px;
   }
   
   @keyframes rotation {
@@ -43,10 +45,6 @@
       transform: rotate(360deg);
     }
   }
-}
-
-.green {
-  background-color: #31AE54;
 }
 
 .grey {

@@ -1,0 +1,39 @@
+.feed-vueJS {
+  box-shadow: 0 4px 15px -2px lightgray;
+}
+
+.feed-date {
+  font-size: 12px;
+  font-weight: 400;
+  color: grey;
+  text-transform: uppercase;
+}
+
+.feed_userPost {
+  margin-bottom: 32px;
+}
+
+.feed_wrapper {
+  padding: 24px 20px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+
+.feed_reactions-icon {
+  width: 16px;
+  margin-right: 4px;
+}
+
+.feed_reactions {
+  display: flex;
+  align-items: center;
+}
+
+.feed_reactions-item {
+  display: flex;
+  align-items: center;
+  padding: 5px 13px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  height: 28px;
+}

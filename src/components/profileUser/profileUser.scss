@@ -1,0 +1,40 @@
+.c-user {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  margin-right: 20px;
+}
+
+.user-avatar_image {
+  width: 90px;
+  border-radius: 50%;
+}
+
+.user-username {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.user-statistics {
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.user-statistics_item {
+  font-size: 12px;
+  font-weight: 500;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.user-name {
+  color: #9E9E9E;
+  font-size: 14px;
+  font-weight: 400;
+}

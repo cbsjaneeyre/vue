@@ -5,14 +5,18 @@
     </div>
     <div class="user-info">
       <div class="user-username">{{ username }}</div>
-      <div class="user-type">{{ title }}</div>
+      <ul class="user-statistics">
+        <li class="user-statistics_item">{{ reposts }} reposts</li>
+        <li class="user-statistics_item">{{ watchers }} watchers</li>
+      </ul>
+      <div class="user-name">{{ name }}</div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'User',
+  name: 'profileUser',
   props: {
     avatar: {
       type: String,
@@ -22,7 +26,15 @@ export default {
       type: String,
       required: true
     },
-    title: {
+    reposts: {
+      type: String,
+      required: true
+    },
+    watchers: {
+      type: String,
+      required: true
+    },
+    name: {
       type: String,
       required: true
     }
@@ -30,4 +42,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./user.scss" scoped></style>
+<style lang="scss" src="./profileUser.scss" scoped></style>

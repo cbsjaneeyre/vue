@@ -1,0 +1,31 @@
+.g-container {
+  display: flex;
+}
+
+.profile-info {
+  width: 380px;
+  padding-top: 40px;
+}
+
+.repos {
+  width: 1060px;
+  min-height: 898px;
+  border-left: 1px solid #D3D3D3;
+  padding: 40px 0 0 74px;
+}
+
+.top_logo {
+  width: 174px;
+  height: 35.51px;
+}
+
+.top_homeButtons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 145px;
+}
+
+.repos-info {
+  margin-bottom: 36px;
+}
