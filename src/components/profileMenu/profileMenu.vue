@@ -10,6 +10,8 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router'
+
 export default {
   name: 'profileMenu',
   props: {
@@ -22,14 +24,24 @@ export default {
       required: true
     }
   },
-  methods: {
-    goToRepositories () {
-      this.$router.push('repositories')
-    },
-    goToFollowing () {
-      this.$router.push('following')
+  setup () {
+    const router = useRouter()
+    const goToRepositories = () => { router.push('repositories') }
+    const goToFollowing = () => { router.push('following') }
+
+    return {
+      goToRepositories,
+      goToFollowing
     }
   }
+  // methods: {
+  //   goToRepositories () {
+  //     this.$router.push('repositories')
+  //   },
+  //   goToFollowing () {
+  //     this.$router.push('following')
+  //   }
+  // }
 }
 </script>
 

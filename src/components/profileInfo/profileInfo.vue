@@ -18,7 +18,9 @@
 <script>
 import { profileUser } from '../profileUser'
 import { profileTitle } from '@/components/profileTitle'
-import { mapActions, mapState } from 'vuex'
+// import { mapActions, mapState } from 'vuex'
+import { useStore } from 'vuex'
+import { onMounted, computed, ref } from 'vue'
 
 export default {
   name: 'profileInfo',
@@ -26,35 +28,52 @@ export default {
     profileUser,
     profileTitle
   },
-  data () {
-    return {
-      items: []
-    }
-  },
-  computed: {
-    ...mapState({
-      user: (state) => state.auth.user
-    })
-  },
-  methods: {
-    ...mapActions({
-      getUserData: 'auth/getUserInfo'
-    }),
-    gitComponentData (item) {
+  setup () {
+    const { dispatch, state } = useStore()
+    const items = ref([])
+    const gitComponentData = (item) => {
       return {
         title: item.name,
         username: item.owner.login,
-        stars: item.stargazers_count,
-        description: item.description,
-        avatar: item.owner.avatar_url,
-        forks: item.forks_count,
-        watchers: item.watchers_count
+        avatar: item.owner.avatar_url
       }
     }
-  },
-  async created () {
-    this.getUserData()
+
+    onMounted(() => {
+      dispatch('auth/getUserInfo')
+    })
+
+    return {
+      user: computed(() => state.auth.user),
+      gitComponentData,
+      items
+    }
   }
+  // data () {
+  //   return {
+  //     items: []
+  //   }
+  // },
+  // computed: {
+  //   ...mapState({
+  //     user: (state) => state.auth.user
+  //   })
+  // },
+  // methods: {
+  //   ...mapActions({
+  //     getUserData: 'auth/getUserInfo'
+  //   }),
+  //   gitComponentData (item) {
+  //     return {
+  //       title: item.name,
+  //       username: item.owner.login,
+  //       avatar: item.owner.avatar_url
+  //     }
+  //   }
+  // },
+  // async created () {
+  //   this.getUserData()
+  // }
 }
 </script>
 

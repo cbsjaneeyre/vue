@@ -67,6 +67,7 @@ export default {
   },
   computed: {
     ...mapState({
+      trendings: (state) => state.trendings.data,
       user: (state) => state.auth.user,
       repos: (state) => state.starred.starredRepos,
       issue: (state) => state.issues.repoIssues
@@ -75,6 +76,7 @@ export default {
   },
   methods: {
     ...mapActions({
+      fetchTrendings: 'trendings/fetchTrendings',
       getUserData: 'auth/getUserInfo',
       getUserStarredRepos: 'starred/getStarredRepo',
       getRepoIssues: 'issues/getRepoIssues'
@@ -107,6 +109,7 @@ export default {
     }
   },
   mounted () {
+    this.fetchTrendings()
     this.getUserStarredRepos({ limit: 10 })
   }
 }

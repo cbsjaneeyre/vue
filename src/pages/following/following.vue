@@ -18,11 +18,7 @@
         <div class="repos-info">
           <profileTitle text="Following" number="10"></profileTitle>
         </div>
-        <followPage
-        :data="gitComponentData(repoInfo)"
-        v-for="repoInfo in repos"
-        :key="repoInfo.id"
-        ></followPage>
+        <followPage :data="gitComponentData(repoInfo)" v-for="repoInfo in repos" :key="repoInfo.id"></followPage>
       </div>
     </div>
   </div>
@@ -34,8 +30,11 @@ import { logo } from '@/components/logo'
 import { homeButtons } from '@/components/homeButtons'
 import { profileInfo } from '@/components/profileInfo'
 import { profileTitle } from '@/components/profileTitle'
-import { mapActions, mapState } from 'vuex'
+// import { mapActions, mapState } from 'vuex'
 import { followPage } from '@/components/followPage'
+import { useStore } from 'vuex'
+import { onMounted, computed, ref } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default {
   name: 'following',
@@ -47,42 +46,68 @@ export default {
     profileTitle,
     followPage
   },
-  data () {
-    return {
-      items: []
-    }
-  },
-  computed: {
-    ...mapState({
-      user: (state) => state.auth.user,
-      repos: (state) => state.starred.starredRepos
-    })
-  },
-  methods: {
-    ...mapActions({
-      getUserData: 'auth/getUserInfo',
-      getUserStarredRepos: 'starred/getStarredRepo'
-    }),
-    gitComponentData (item) {
+  // data () {
+  //   return {
+  //     items: []
+  //   }
+  // },
+  setup () {
+    const { dispatch, state } = useStore()
+    const router = useRouter()
+    const goToFeeds = () => { router.push('/') }
+    const items = ref([])
+    const gitComponentData = (item) => {
       return {
         title: item.name,
         username: item.owner.login,
-        stars: item.stargazers_count,
-        description: item.description,
-        avatar: item.owner.avatar_url,
-        forks: item.forks_count
+        avatar: item.owner.avatar_url
       }
-    },
-    goToFeeds () {
-      this.$router.push('/')
     }
-  },
-  async created () {
-    this.getUserData()
-  },
-  mounted () {
-    this.getUserStarredRepos({ limit: 10 })
+
+    onMounted(() => {
+      dispatch('auth/getUserInfo')
+      dispatch('starred/getStarredRepo', { limit: 10 })
+    })
+
+    return {
+      user: computed(() => state.auth.user),
+      repos: computed(() => state.starred.starredRepos),
+      goToFeeds,
+      gitComponentData,
+      items
+    }
   }
+  // computed: {
+  //   ...mapState({
+  //     user: (state) => state.auth.user,
+  //     repos: (state) => state.starred.starredRepos
+  //   })
+  // },
+  // methods: {
+  //   // ...mapActions({
+  //   //   // getUserData: 'auth/getUserInfo',
+  //   //   // getUserStarredRepos: 'starred/getStarredRepo'
+  //   // }),
+  //   gitComponentData (item) {
+  //     return {
+  //       title: item.name,
+  //       username: item.owner.login,
+  //       stars: item.stargazers_count,
+  //       description: item.description,
+  //       avatar: item.owner.avatar_url,
+  //       forks: item.forks_count
+  //     }
+  //   }
+  //   // goToFeeds () {
+  //   //   this.$router.push('/')
+  //   // }
+  // }
+  // // async created () {
+  // //   // this.getUserData()
+  // // },
+  // // mounted () {
+  // //   // this.getUserStarredRepos({ limit: 10 })
+  // // }
 }
 </script>
 
