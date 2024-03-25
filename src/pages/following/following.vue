@@ -18,11 +18,11 @@
         <div class="repos-info">
           <profileTitle text="Following" number="10"></profileTitle>
         </div>
-        <following
+        <followPage
         :data="gitComponentData(repoInfo)"
         v-for="repoInfo in repos"
         :key="repoInfo.id"
-        ></following>
+        ></followPage>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@ import { homeButtons } from '@/components/homeButtons'
 import { profileInfo } from '@/components/profileInfo'
 import { profileTitle } from '@/components/profileTitle'
 import { mapActions, mapState } from 'vuex'
-import { following } from '@/components/following'
+import { followPage } from '@/components/followPage'
 
 export default {
   name: 'following',
@@ -45,7 +45,7 @@ export default {
     homeButtons,
     profileInfo,
     profileTitle,
-    following
+    followPage
   },
   data () {
     return {

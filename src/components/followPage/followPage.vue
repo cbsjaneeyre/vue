@@ -14,7 +14,7 @@ import { user } from '../user'
 import { mainButton } from '../mainButton'
 
 export default {
-  name: 'following',
+  name: 'followPage',
   components: {
     user,
     mainButton
@@ -28,4 +28,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./following.scss" scoped></style>
+<style lang="scss" src="./followPage.scss" scoped></style>

@@ -37,9 +37,6 @@ export default {
     }),
     goToFeeds () {
       this.$router.push('/')
-    },
-    goToUser () {
-      this.$router.push('profile')
     }
   },
   props: {

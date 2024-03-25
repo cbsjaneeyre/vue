@@ -7,8 +7,9 @@
       <profileUser
       :avatar="user?.avatar_url"
       :username="user?.login"
-      :watchers="user?.watchers"
       :name="user?.name"
+      reposts="10"
+      watchers="10"
       ></profileUser>
     </div>
   </div>
