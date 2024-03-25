@@ -33,9 +33,7 @@ import { logo } from '@/components/logo'
 import { mainButton } from '@/components/mainButton'
 import { authFooter } from '@/components/footer'
 import { icon } from '@/icons'
-
-const clientId = '286f7a47e463a95bc261'
-const clientSecret = '58f55dcb1e5469e921e1222272356487b5b5e5dd'
+import env from '../../../env'
 
 export default {
   name: 'auth',
@@ -50,7 +48,7 @@ export default {
       const apiURL = 'https://github.com/login/oauth/authorize'
       const params = new URLSearchParams()
 
-      params.append('client_id', clientId)
+      params.append('client_id', env.clientId)
       params.append('scope', 'repo:status read:user')
 
       window.location.href = `${apiURL}?${params}`
@@ -66,7 +64,7 @@ export default {
           headers: {
             'Content-type': 'application/json'
           },
-          body: JSON.stringify({ clientId, clientSecret, code })
+          body: JSON.stringify({ clientId: env.clientId, clientSecret: env.clientSecret, code })
         })
 
         const { token } = await response.json()
