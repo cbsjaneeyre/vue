@@ -19,4 +19,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./userPost.scss" scoped></style>
+<!-- <style lang="scss" src="./userPost.scss" scoped></style> -->

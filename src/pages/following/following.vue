@@ -16,14 +16,8 @@
       </div>
       <div class="repos">
         <div class="repos-info">
-          <!-- <profileTitle text="Repositories" number="10"></profileTitle> -->
           <profileTitle text="Following" number="10"></profileTitle>
         </div>
-        <!-- <reposPage
-        :data="gitComponentData(repoInfo)"
-        v-for="repoInfo in repos"
-        :key="repoInfo.id"
-        ></reposPage> -->
         <following
         :data="gitComponentData(repoInfo)"
         v-for="repoInfo in repos"
@@ -39,19 +33,17 @@ import { top } from '@/components/top'
 import { logo } from '@/components/logo'
 import { homeButtons } from '@/components/homeButtons'
 import { profileInfo } from '@/components/profileInfo'
-// import { reposPage } from '@/components/reposPage'
 import { profileTitle } from '@/components/profileTitle'
 import { mapActions, mapState } from 'vuex'
 import { following } from '@/components/following'
 
 export default {
-  name: 'profile',
+  name: 'following',
   components: {
     top,
     logo,
     homeButtons,
     profileInfo,
-    // reposPage,
     profileTitle,
     following
   },
@@ -94,4 +86,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./profile.scss" scoped></style>
+<style lang="scss" src="./following.scss" scoped></style>

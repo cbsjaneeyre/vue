@@ -1,23 +1,35 @@
 <template>
-    <button class="homeButtons-icon" >
+  <div class="homeButtons">
+    <button class="homeButtons-icon">
       <icon name="home" @click="goToFeeds"></icon>
     </button>
-    <button class="homeButtons-avatar" @click="goToUser">
+    <button class="homeButtons-avatar" @click="isShown = !isShown">
       <img :src="avatar" class="userpic_image" alt="userpic">
     </button>
     <button class="homeButtons-icon" @click="logout">
       <icon name="logout"></icon>
     </button>
+  </div>
+  <div class="menu" v-if="isShown">
+    <profileMenu textone="Repositories" texttwo="Following"></profileMenu>
+  </div>
 </template>
 
 <script>
 import { icon } from '../../icons'
+import { profileMenu } from '../../components/profileMenu'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'homeButtons',
   components: {
-    icon
+    icon,
+    profileMenu
+  },
+  data () {
+    return {
+      isShown: false
+    }
   },
   methods: {
     ...mapActions({
