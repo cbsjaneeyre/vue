@@ -34,8 +34,7 @@ export default {
       type: Boolean
     },
     issues: {
-      type: Object,
-      default: () => {}
+      type: Object
     }
   },
   data () {

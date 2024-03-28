@@ -47,7 +47,6 @@ import { reactionButtons } from '../../components/reactionButtons'
 import { icon } from '../../icons'
 import { userPost } from '../../components/userPost'
 import { issues } from '../../components/issues'
-// import { mapState } from 'vuex'
 
 export default {
   name: 'Feed',
@@ -63,11 +62,6 @@ export default {
       shown: false
     }
   },
-  // computed: {
-  //   ...mapState({
-  //     issueState: (state) => state.issues.repoIssues
-  //   })
-  // },
   methods: {
     toggle (isOpened) {
       this.shown = isOpened
@@ -85,6 +79,9 @@ export default {
     },
     issues: {
       type: Object
+    },
+    loading: {
+      type: Boolean
     }
   },
   emits: ['getIssues']

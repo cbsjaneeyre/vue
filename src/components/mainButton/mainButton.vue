@@ -15,7 +15,7 @@ export default {
       type: Boolean
     },
     theme: {
-      type: Boolean
+      type: String
     }
   }
 }

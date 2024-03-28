@@ -20,15 +20,15 @@ describe('issues component', () => {
 
     const wrapper = mount(issues, {
       propsData: {
-        issues: Object.from({ length: 6 }).map(x => issue)
+        issues: Array.from({ length: 1 }).map(x => issue)
       }
     })
 
-    expect(wrapper.find('comments').exists()).toBe(false)
+    expect(wrapper.find('.comments').exists()).toBe(false)
 
     await wrapper.find('.toggler button').trigger('click')
 
-    expect(wrapper.find('comments_item').length).toBe(6)
+    expect(wrapper.findAll('.comments_item').length).toBe(1)
   })
 
   it('does not show content-loader when issues are there', async () => {
@@ -41,7 +41,7 @@ describe('issues component', () => {
 
     const wrapper = mount(issues, {
       propsData: {
-        issues: Object.from({ length: 6 }).map(x => issue)
+        issues: Array.from({ length: 1 }).map(x => issue)
       }
     })
 

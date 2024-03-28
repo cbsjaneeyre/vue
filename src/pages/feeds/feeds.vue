@@ -28,7 +28,7 @@
     :data="gitComponentData(repoInfo)"
     v-for="repoInfo in repos"
     :key="repoInfo.id"
-    :date="new Date(repoInfo.date)"
+    :date="new Date(repoInfo.created_at)"
     :issues="repoInfo?.issues"
     @getIssues="loadIssues({ id: repoInfo.id, owner: repoInfo.owner.login, repo: repoInfo.name })"
     ></feed>
@@ -42,7 +42,7 @@ import { logo } from '../../components/logo'
 import { feed } from '../../components/feed'
 import stories from './data.json'
 import { homeButtons } from '../../components/homeButtons'
-import { mapGetters, mapActions, mapState } from 'vuex'
+import { mapActions, mapState } from 'vuex'
 import * as api from '../../api'
 
 export default {
@@ -66,8 +66,8 @@ export default {
       user: (state) => state.auth.user,
       repos: (state) => state.starred.starredRepos,
       issue: (state) => state.issues.repoIssues
-    }),
-    ...mapGetters(['getUnstarredRepos'])
+    })
+    // ...mapGetters(['getUnstarredRepos'])
   },
   methods: {
     ...mapActions({
@@ -86,8 +86,7 @@ export default {
         stars: item.stargazers_count,
         description: item.description,
         avatar: item.owner.avatar_url,
-        forks: item.forks_count,
-        date: item.created_at
+        forks: item.forks_count
       }
     },
     goToFeeds () {

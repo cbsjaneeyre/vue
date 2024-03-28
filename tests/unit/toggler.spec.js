@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import toggler from '@/components/toggler'
+import toggler from '@/components/toggler/toggler.vue'
 
 describe('toggler component', () => {
   it('changes the title on click', async () => {
@@ -7,7 +7,7 @@ describe('toggler component', () => {
 
     expect(wrapper.find('.toggler-text').text()).toBe('Show issues')
 
-    await wrapper.find('toggler-button').trigger('click')
+    await wrapper.find('.toggler-button').trigger('click')
 
     expect(wrapper.find('.toggler-text').text()).toBe('Hide issues')
   })

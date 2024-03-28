@@ -1,5 +1,4 @@
 import * as api from '../../api'
-// import { starRepo } from '@/api/rest/starred'
 
 export const trendings = {
   namespaced: true,
