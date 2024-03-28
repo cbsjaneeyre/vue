@@ -22,10 +22,13 @@ export default {
   },
   methods: {
     toggle () {
+      if (!this.isOpened) {
+        this.$emit('onToggle', this.isOpened)
+      }
       this.isOpened = !this.isOpened // при клике изменяем значение на обратное
-      this.$emit('onToggle', this.isOpened)
     }
-  }
+  },
+  emits: ['onToggle']
 }
 </script>
 

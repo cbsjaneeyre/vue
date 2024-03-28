@@ -7,7 +7,7 @@
       <icon name="medium"></icon>
     </div>
     <div class="loader-box-small">
-      <icon name="small"></icon>
+      <icon name="smallBox"></icon>
     </div>
   </div>
 </template>

@@ -8,12 +8,10 @@ export default {
   name: 'userPost',
   props: {
     title: {
-      type: String,
-      required: true
+      type: String
     },
     text: {
-      type: String,
-      required: true
+      type: String
     }
   }
 }

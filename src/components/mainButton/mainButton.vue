@@ -9,16 +9,13 @@ export default {
   name: 'mainButton',
   props: {
     disabled: {
-      type: Boolean,
-      required: true
+      type: Boolean
     },
     loading: {
-      type: Boolean,
-      required: true
+      type: Boolean
     },
     theme: {
-      type: Boolean,
-      required: true
+      type: Boolean
     }
   }
 }

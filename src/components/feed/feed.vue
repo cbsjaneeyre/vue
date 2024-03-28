@@ -17,7 +17,7 @@
               <reactionButtons text="Star"></reactionButtons>
             </li>
             <li class="feed_reactions-item">
-              <reactionButtons :text="data.stars"></reactionButtons>
+              <reactionButtons :number="data.stars"></reactionButtons>
             </li>
             <li class="feed_reactions-item">
               <div class="feed_reactions-icon">
@@ -26,15 +26,15 @@
               <reactionButtons text="Fork"></reactionButtons>
             </li>
             <li class="feed_reactions-item">
-              <reactionButtons :text="data.forks"></reactionButtons>
+              <reactionButtons :number="data.forks"></reactionButtons>
             </li>
           </ul>
         </div>
       </div>
       <issues
-      :issues="issues?.loading"
+      :issues="issues"
       :loading="issues?.loading"
-      @loadContent="loadIssues({ id, owner: owner.login, repo: name })"
+      @loadContent="loadIssues()"
       ></issues>
       <span class="feed-date">{{ date }}</span>
     </div>
@@ -47,7 +47,7 @@ import { reactionButtons } from '../../components/reactionButtons'
 import { icon } from '../../icons'
 import { userPost } from '../../components/userPost'
 import { issues } from '../../components/issues'
-import { mapActions, mapState } from 'vuex'
+// import { mapState } from 'vuex'
 
 export default {
   name: 'Feed',
@@ -63,32 +63,31 @@ export default {
       shown: false
     }
   },
-  computed: {
-    ...mapState({
-      issueState: (state) => state.issues.repoIssues
-    })
-  },
+  // computed: {
+  //   ...mapState({
+  //     issueState: (state) => state.issues.repoIssues
+  //   })
+  // },
   methods: {
     toggle (isOpened) {
       this.shown = isOpened
     },
-    ...mapActions({
-      getRepoIssues: 'issues/getRepoIssues'
-    }),
-    loadIssues ({ id, owner, repo }) {
-      this.getRepoIssues({ id, owner, repo })
+    loadIssues () {
+      this.$emit('getIssues')
     }
   },
   props: {
     data: {
-      type: Object,
-      required: true
+      type: Object
     },
     date: {
-      type: String,
-      require: true
+      type: Date
+    },
+    issues: {
+      type: Object
     }
-  }
+  },
+  emits: ['getIssues']
 }
 </script>
 

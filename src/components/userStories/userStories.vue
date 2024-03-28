@@ -12,12 +12,10 @@ export default {
   name: 'userStories',
   props: {
     avatar: {
-      type: String,
-      required: true
+      type: String
     },
     username: {
-      type: String,
-      required: true
+      type: String
     }
   }
 }

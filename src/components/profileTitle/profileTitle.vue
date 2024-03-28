@@ -10,12 +10,10 @@ export default {
   name: 'profileTitle',
   props: {
     text: {
-      type: String,
-      required: true
+      type: String
     },
     number: {
-      type: String,
-      required: true
+      type: String
     }
   }
 }

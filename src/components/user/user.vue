@@ -15,16 +15,13 @@ export default {
   name: 'User',
   props: {
     avatar: {
-      type: String,
-      required: true
+      type: String
     },
     username: {
-      type: String,
-      required: true
+      type: String
     },
     title: {
-      type: String,
-      required: true
+      type: String
     }
   }
 }

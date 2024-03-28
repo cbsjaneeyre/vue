@@ -16,12 +16,10 @@ export default {
   name: 'profileMenu',
   props: {
     textone: {
-      type: String,
-      required: true
+      type: String
     },
     texttwo: {
-      type: String,
-      required: true
+      type: String
     }
   },
   setup () {

@@ -1,6 +1,7 @@
 <template>
   <button class="c-reaction-button">
     <div class="reaction-button-text">{{ text }}</div>
+    <div class="reaction-button-text">{{ number }}</div>
   </button>
 </template>
 
@@ -9,8 +10,10 @@ export default {
   name: 'reactionButtons',
   props: {
     text: {
-      type: String,
-      required: true
+      type: String
+    },
+    number: {
+      type: Number
     }
   }
 }

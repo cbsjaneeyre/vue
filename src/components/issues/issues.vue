@@ -1,14 +1,14 @@
 <template>
   <div class="c-issues">
     <div class="toggler">
-      <toggler @toggle="handleToggle"></toggler>
+      <toggler @onToggle="handleToggle"></toggler>
     </div>
     <div class="content-loader" v-if="loading">
       <contentLoader></contentLoader>
     </div>
-    <div class="comments" v-if="issues?.length && opened">
+    <div class="comments" v-if="issues?.list?.length">
       <ul class="comments_list">
-        <li class="comments_item" v-for="issue in issues" :key="issue.id">
+        <li class="comments_item" v-for="issue in issues.list" :key="issue.id">
           <comment :username="issue.user.login" :text="issue.title"></comment>
         </li>
       </ul>
@@ -34,7 +34,7 @@ export default {
       type: Boolean
     },
     issues: {
-      type: Array,
+      type: Object,
       default: () => {}
     }
   },
@@ -44,12 +44,12 @@ export default {
     }
   },
   methods: {
-    handleToggle (isOpened) {
-      this.opened = isOpened
-
-      if (isOpened && this.issues.length === 0) {
-        this.$emit('loadContent')
-      }
+    handleToggle () {
+      this.$emit('loadContent')
+      // this.opened = isOpened
+      // if (isOpened && this.issues.length === 0) {
+      //   this.$emit('loadContent')
+      // }
     }
   }
 }

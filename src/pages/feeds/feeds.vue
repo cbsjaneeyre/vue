@@ -28,16 +28,11 @@
     :data="gitComponentData(repoInfo)"
     v-for="repoInfo in repos"
     :key="repoInfo.id"
-    :date="new Date(created_at)"
+    :date="new Date(repoInfo.date)"
+    :issues="repoInfo?.issues"
+    @getIssues="loadIssues({ id: repoInfo.id, owner: repoInfo.owner.login, repo: repoInfo.name })"
     ></feed>
   </div>
-  <!-- <div class="g-container">
-    <ul class="git-list">
-      <li class="git-item" v-for="item in items" :key="item.id">
-        <gitComponent v-bind="gitComponentData(item)" dark></gitComponent>
-      </li>
-    </ul>
-  </div> -->
 </template>
 
 <script>
@@ -79,7 +74,7 @@ export default {
       fetchTrendings: 'trendings/fetchTrendings',
       getUserData: 'auth/getUserInfo',
       getUserStarredRepos: 'starred/getStarredRepo',
-      getRepoIssues: 'issues/getRepoIssues'
+      getRepoIssues: 'starred/getRepoIssues'
     }),
     loadIssues ({ id, owner, repo }) {
       this.getRepoIssues({ id, owner, repo })

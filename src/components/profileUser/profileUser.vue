@@ -19,24 +19,19 @@ export default {
   name: 'profileUser',
   props: {
     avatar: {
-      type: String,
-      required: true
+      type: String
     },
     username: {
-      type: String,
-      required: true
+      type: String
     },
     reposts: {
-      type: String,
-      required: true
+      type: String
     },
     watchers: {
-      type: String,
-      required: true
+      type: String
     },
     name: {
-      type: String,
-      required: true
+      type: String
     }
   }
 }

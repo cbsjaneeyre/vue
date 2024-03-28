@@ -12,12 +12,10 @@ export default {
   name: 'Comment',
   props: {
     username: {
-      type: String,
-      required: true
+      type: String
     },
     text: {
-      type: String,
-      required: true
+      type: String
     }
   }
 }

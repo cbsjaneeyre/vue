@@ -18,8 +18,7 @@ export default {
   },
   props: {
     paragraphs: {
-      type: Number,
-      required: true
+      type: Number
     }
   }
 }

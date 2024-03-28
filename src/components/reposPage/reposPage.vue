@@ -13,7 +13,7 @@
             <reactionButtons text="Star"></reactionButtons>
           </li>
           <li class="feed_reactions-item">
-            <reactionButtons :text="data.stars"></reactionButtons>
+            <reactionButtons :number="data.stars"></reactionButtons>
           </li>
           <li class="feed_reactions-item">
             <div class="feed_reactions-icon">
@@ -22,7 +22,7 @@
             <reactionButtons text="Fork"></reactionButtons>
           </li>
           <li class="feed_reactions-item">
-            <reactionButtons :text="data.forks"></reactionButtons>
+            <reactionButtons :number="data.forks"></reactionButtons>
           </li>
         </ul>
       </div>
@@ -44,12 +44,10 @@ export default {
   },
   props: {
     data: {
-      type: Object,
-      required: true
+      type: Object
     },
     number: {
-      type: String,
-      required: true
+      type: String
     }
   }
 }
