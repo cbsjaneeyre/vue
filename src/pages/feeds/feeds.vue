@@ -28,7 +28,7 @@
     :data="gitComponentData(repoInfo)"
     v-for="repoInfo in repos"
     :key="repoInfo.id"
-    :date="new Date(repoInfo.created_at)"
+    :date="new Date(repoInfo.created_at).toDateString()"
     :issues="repoInfo?.issues"
     @getIssues="loadIssues({ id: repoInfo.id, owner: repoInfo.owner.login, repo: repoInfo.name })"
     ></feed>
